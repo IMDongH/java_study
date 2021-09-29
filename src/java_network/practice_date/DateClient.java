@@ -1,7 +1,7 @@
-package java_network;
+package java_network.practice_date;
 import java.io.*;
 import java.net.*;
-public class TCPClient1 {
+public class DateClient {
 
     public static void main(String argv[]) throws Exception
     {
