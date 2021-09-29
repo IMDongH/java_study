@@ -1,7 +1,7 @@
 package java_network.practice1;
-
 import java.io.*;
 import java.net.*;
+
 public class TCPServer1
 {
     public static void main(String[] args) throws IOException {
