@@ -16,10 +16,10 @@ public class ClientEx {
         try {
             socket = new Socket("localhost", 4321);
 
-            in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+
             stin = new BufferedReader(new InputStreamReader(System.in));
             out = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
-
+            in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             String outputMessage;
             while (true) {
                 outputMessage = stin.readLine();
@@ -33,6 +33,7 @@ public class ClientEx {
 
                 String inputMessage = in.readLine();
                 System.out.println(inputMessage);
+
             }
         } catch (IOException e) {
             System.out.println(e.getMessage());
