@@ -1,4 +1,4 @@
-package java_algorithm.recursive.recursive2;
+package java_algorithm.recursive2;
 import java.util.Scanner;
 public class fibo {
 

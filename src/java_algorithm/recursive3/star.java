@@ -1,4 +1,4 @@
-package java_algorithm.recursive.recursive3;
+package java_algorithm.recursive3;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
