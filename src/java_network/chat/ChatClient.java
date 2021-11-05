@@ -20,7 +20,7 @@ public class ChatClient {
         String code = null;
         try {
             //서버의 소캣번호 입력
-            sck = new Socket("192.168.0.7", 1525);
+            sck = new Socket("127.0.0.1", 1525);
             pw = new PrintWriter(new OutputStreamWriter(sck.getOutputStream()));
             br = new BufferedReader(new InputStreamReader(sck.getInputStream()));
             BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="java_network.chat.PersonOverview">
+   <children>
+      <Button layoutX="274.0" layoutY="178.0" mnemonicParsing="false" text="hello" />
+      <TextField layoutX="122.0" layoutY="32.0" text="hello" />
+   </children>
+</AnchorPane>
