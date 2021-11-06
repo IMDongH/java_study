@@ -1,5 +1,9 @@
 package Practice;
 import java.sql.*;
+import java.util.Date;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+
 
 public class Database {
     /* 데이터베이스와의 연결에 사용할 변수들 */
@@ -8,6 +12,7 @@ public class Database {
     String url = "jdbc:mysql://localhost/game";
     String user = "root";
     String passwd = "1007";
+    private Object RequestContextHolder;
 
     Database() {	//Database 객체 생성 시 데이터베이스 서버와 연결한다.
         try {	
@@ -72,7 +77,7 @@ public class Database {
 
         try {
             //guest 테이블에 각 문자열들을 순서대로 업데이트하는 문장. 승, 패는 초기값을 숫자 0으로 한다.
-            String insertStr = "INSERT INTO guest VALUES('" + id + "' ,password('"+password+"') ,'"+ nickname + "' , '"+ email + "' , '" + personer_link + "', 0, 0,0, ' ' ,'" + name + "')";
+            String insertStr = "INSERT INTO guest VALUES('" + id + "' ,password('"+password+"') ,'"+ nickname + "' , '"+ email + "' , '" + personer_link + "', 0, 0,0, ' ' ,'" + name + "','',0)";
             stmt.executeUpdate(insertStr);
 
             flag = true;	//업데이트문이 정상적으로 수행되면 flag를 true로 초기화하고 성공을 콘솔로 알린다.
@@ -377,4 +382,20 @@ public class Database {
 
         return flag;	//flag 반환
     }
+    Date recordDay()
+    {
+        Date today = new Date();
+        return today;
+    }
+
+    String recordDate()
+    {
+        LocalTime now = LocalTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH시 mm분 ss초");
+        String formatedNow = now.format(formatter);
+        return formatedNow;
+    }
+
+
+
 }
