@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="login" prefHeight="850" prefWidth="1000" style="-fx-background-color: #eaeaea;" stylesheets="@SignUp.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Practice.SignUpController">
+    <children>
+        <Label id="subject" layoutX="342.0" layoutY="185.0" text="SIGNUP" />
+        <Label layoutX="332" layoutY="286" text="ID" />
+        <Label layoutX="332" layoutY="326" text="PASSWORD" />
+        <Label layoutX="332" layoutY="366" text="NICKNAME" />
+        <Label layoutX="332" layoutY="406" text="E-MAIL" />
+        <Label layoutX="332" layoutY="446" text="Person_LINK" />
+        <Label layoutX="332" layoutY="486" text="NAME" />
+        <TextField fx:id="id" layoutX="420" layoutY="286" />
+        <PasswordField fx:id="password" layoutX="420" layoutY="326" />
+        <TextField fx:id="nickname" layoutX="420" layoutY="366" />
+        <TextField fx:id="email" layoutX="420" layoutY="406" />
+        <TextField fx:id="personL" layoutX="420" layoutY="446" />
+        <TextField fx:id="name" layoutX="420" layoutY="486" />
+
+
+        <Button fx:id="SignUpBtn" layoutX="433.0" layoutY="518.0" text="Join" />
+        <Button fx:id="cancelBtn" layoutX="512.0" layoutY="518.0" text="cancel" />
+    </children>
+</AnchorPane>

@@ -41,18 +41,17 @@ public class Database {
             int count = 0;
             while(result.next()) {
                 System.out.println(result.getString("id"));
-                if(id.equals(result.getString("id"))) {	//true일 경우 nickname에 조회한 닉네임에 반환하고 로그인 성공을 콘솔로 알린다.
+                if(id.equals(result.getString("id"))) {
                     flag=true;
                     System.out.println("[Server] 로그인 성공");
                 }
-
                 else {	//false일 경우 flag를 false로
                     flag=false;
                     System.out.println("[Server] 로그인 실패");
                 }
                 count++;
             }
-        } catch(Exception e) {	//조회에 실패했을 때 nickname을 "null"로 초기화. 실패를 콘솔로 알린다.
+        } catch(Exception e) {
             flag = false;
             System.out.println("[Server] 로그인 실패 > " + e.toString());
         }

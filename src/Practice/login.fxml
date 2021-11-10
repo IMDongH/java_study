@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane prefHeight="600" prefWidth="800" stylesheets="@login.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="Practice.LoginController">
+    <children>
+        <AnchorPane>
+            <Label id="subject" layoutX="217.0" layoutY="149.0" text="UP and DOWN" />
+            <Label layoutX="271.0" layoutY="328.0" text="ID" />
+            <Label layoutX="261.0" layoutY="366.0" text="PASSWORD" />
+            <TextField fx:id="id" layoutX="349.0" layoutY="324.0" promptText="Type your ID" />
+            <PasswordField fx:id="password" layoutX="349.0" layoutY="362.0" promptText="Type your password" />
+            <Button fx:id="SignUpBtn" layoutX="255.0" layoutY="406.0" text="SIGNUP" />
+            <Button fx:id="loginBtn" layoutX="360.0" layoutY="406.0" text="LOGIN" />
+            <Button fx:id="exit" layoutX="459.0" layoutY="406.0" onAction="#handleBtnAction" text="EXIT" />
+        </AnchorPane>
+    </children>
+</StackPane>

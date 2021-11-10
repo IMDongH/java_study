@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/"
+            prefHeight="850" prefWidth="1000"
+            style="-fx-background-color: #eaeaea;"
+            fx:controller="Practice.MainController">
+    <children>
+        <Label layoutX="320" layoutY="150" text="로그인 성공!"/>
+
+    </children>
+</AnchorPane>
+
