@@ -32,8 +32,8 @@ public class LoginController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        SignUpBtn.setOnAction(e->SignUpAction(e));
-        loginBtn.setOnAction(e->loginAction(e));
+        SignUpBtn.setOnAction(e->SignUpAction(e));//회원가입 버튼을 누르면 SignUpAction 함수 실행
+        loginBtn.setOnAction(e->loginAction(e));//로그인 버튼을 누르면 loginAction 함수 실행
     }
 
 
@@ -64,7 +64,7 @@ public class LoginController implements Initializable{
         String sql = "";*/
         try {
             Database db = new Database();
-            if (!db.loginCheck(uId, upassword)) {
+            if (!db.loginCheck(uId, upassword)) {//로그인 정보가 잘못되었을경우
                 Alert alert = new Alert(AlertType.INFORMATION);
                 alert.setContentText("잘못 입력 되었습니다..");
                 alert.show();
@@ -76,6 +76,7 @@ public class LoginController implements Initializable{
             pstmt.setString(1, uId);
             pstmt.setString(2, upassword);
             rs = pstmt.executeQuery(sql);*/
+                
                 Server server = new Server();
                 server.accept_deliver(uId);
                 Parent mainPage = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
