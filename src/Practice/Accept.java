@@ -33,7 +33,7 @@ class Accept implements Runnable{
             }
         }
     }
-    public void name_setter(String uname) {
-        this.name = uname;
-    }
+  //  public void name_setter(String uname) {
+   //     this.name = uname;
+   // }
 }

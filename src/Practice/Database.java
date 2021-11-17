@@ -1,5 +1,7 @@
 package Practice;
+import java.net.Inet4Address;
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.Date;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -381,20 +383,49 @@ public class Database {
 
         return flag;	//flag 반환
     }
-    Date recordDay()
-    {
-        Date today = new Date();
-        return today;
+    boolean AccessRecord(String _uID) {
+        boolean flag = false;	//참거짓을 반환할 flag 변수. 초기값은 false.
+
+        //매개변수로 받은 닉네임과 조회한 승리 횟수를 저장할 변수. num의 초기값은 0.
+        String id = _uID;
+        int num = 0;
+
+        try {
+            //guest 테이블에서 nick이라는 닉네임을 가진 회원의 승리 횟수를 조회한다.
+            String searchStr = "SELECT access FROM guest WHERE id='" + id + "'";
+            ResultSet result = stmt.executeQuery(searchStr);
+
+            int count = 0;
+            while(result.next()) {
+                //num에 조회한 승리 횟수를 초기화.
+                num = result.getInt("access");
+                count++;
+            }
+            num++;	//승리 횟수를 올림
+
+            //guest 테이블에서 nick이라는 닉네임을 가진 회원의 승리 횟수를 num으로 업데이트한다.
+            String changeStr = "UPDATE guest SET access=" + num + " WHERE id='" + id +"'";
+            stmt.executeUpdate(changeStr);
+            String day = recordDay();
+            String Ip = Inet4Address.getLocalHost().getHostAddress();
+            changeStr = "UPDATE guest SET date = '" + day + "' WHERE id='" + id +"'";
+            stmt.executeUpdate(changeStr);
+            changeStr = "UPDATE guest SET ip = '" + Ip + "' WHERE id = '" + id +"'";
+            stmt.executeUpdate(changeStr);
+
+            flag = true;	//조회 및 업데이트 성공 시 flag를 true로 바꾸고 성공을 콘솔로 알린다.
+            System.out.println("[Server] 전적 업데이트 성공");
+        } catch(Exception e) {	//조회 및 업데이트 실패 시 flag를 false로 바꾸고 실패를 콘솔로 알린다.
+            flag = false;
+            System.out.println("[Server] 전적 업데이트 실패 > " + e.toString());
+        }
+
+        return flag;	//flag 반환
     }
-
-    String recordDate()
+    public String recordDay()
     {
-        LocalTime now = LocalTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH시 mm분 ss초");
-        String formatedNow = now.format(formatter);
-        return formatedNow;
+        LocalDate todaysDate = LocalDate.now();
+        return todaysDate.toString();
     }
-
-
 
 }

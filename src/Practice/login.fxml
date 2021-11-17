@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<StackPane prefHeight="600" prefWidth="800" stylesheets="@login.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="Practice.LoginController">
+<StackPane prefHeight="600" prefWidth="800" stylesheets="@login.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Practice.LoginController">
     <children>
         <AnchorPane>
             <Label id="subject" layoutX="217.0" layoutY="149.0" text="UP and DOWN" />

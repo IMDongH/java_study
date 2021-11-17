@@ -68,12 +68,12 @@ public class SignUpController implements Initializable{
     }
     
     public void SignUpAction(ActionEvent event){
-        String uName = name.getText();
-        String uNN = nickname.getText();
-        String uPersonL = personL.getText();
-        String uemail = email.getText();
-        String uId = id.getText();
-        String upassword = password.getText();
+        String uName = name.getText().trim();
+        String uNN = nickname.getText().trim();
+        String uPersonL = personL.getText().trim();
+        String uemail = email.getText().trim();
+        String uId = id.getText().trim();
+        String upassword = password.getText().trim();
         
   /*      String jdbcUrl = "jdbc:mysql://localhost/game";
         String dbId = "root";
@@ -91,11 +91,18 @@ public class SignUpController implements Initializable{
         try {
            /* Class.forName("com.mysql.jdbc.Driver");
             conn = DriverManager.getConnection(jdbcUrl, dbId, dbPw);
-*/
-            if(db.overCheckNn(uNN)||(db.overCheckID(uId)))
+*/          if(id.isEmpty()||name.isEmpty()||password.isEmpty()||uNN.isEmpty()){
+
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setContentText("필수 입력창이 비어있습니다.");
+                    alert.show();
+
+            }
+           else if(db.overCheckNn(uNN)||(db.overCheckID(uId)))
             {
                 if (db.overCheckID(uId))
                 {
+
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setContentText("이미 존재하는 아이디 입니다.");
                     alert.show();
@@ -112,13 +119,10 @@ public class SignUpController implements Initializable{
                Alert alert = new Alert(Alert.AlertType.INFORMATION);
                alert.setContentText("회원가입에 성공하였습니다.");
                alert.show();
+               StackPane root = (StackPane) cancelBtn.getScene().getRoot();
+               root.getChildren().remove(login);
            }
-           else
-           {
-               Alert alert = new Alert(Alert.AlertType.INFORMATION);
-               alert.setContentText("잘못 입력 되었습니다..");
-               alert.show();
-           }
+
 
         }
         catch (Exception e) {

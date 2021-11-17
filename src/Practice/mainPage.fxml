@@ -1,15 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.control.*?>
-<?import javafx.geometry.*?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/"
-            prefHeight="850" prefWidth="1000"
-            style="-fx-background-color: #eaeaea;"
-            fx:controller="Practice.MainController">
+<?import javafx.scene.layout.*?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="520.0" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <Label layoutX="320" layoutY="150" text="로그인 성공!"/>
+        <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="500.0" minWidth="200.0" prefHeight="597.0" prefWidth="200.0">
+            <children>
+                <TextField layoutY="556.0" prefHeight="41.0" prefWidth="163.0" />
+                <Separator layoutX="197.0" layoutY="15.0" orientation="VERTICAL" prefHeight="584.0" prefWidth="9.0" />
+                <ScrollPane hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="480.0" minWidth="200.0" prefHeight="547.0" prefWidth="200.0" vbarPolicy="ALWAYS">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="544.0" prefWidth="188.0">
+                            <children>
+                                <TextArea editable="false" layoutY="36.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="480.0" minWidth="185.0" prefHeight="511.0" prefWidth="185.0" promptText="Chatting Filed" />
+                        <TextArea prefHeight="17.0" prefWidth="184.0" text="asd" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </ScrollPane>
+                <Button layoutX="160.0" layoutY="556.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="40.0" text="전송" />
+            </children>
+        </Pane>
+        <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="500.0" minWidth="200.0" prefHeight="622.0" prefWidth="661.0">
+         <children>
 
+         </children></Pane>
     </children>
-</AnchorPane>
-
+</HBox>

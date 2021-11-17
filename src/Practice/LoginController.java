@@ -9,6 +9,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.application.Platform;
@@ -21,6 +24,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
+import javafx.util.Duration;
 
 public class LoginController implements Initializable{
     Database db = new Database();
@@ -42,6 +46,8 @@ public class LoginController implements Initializable{
             Parent SignUp = FXMLLoader.load(getClass().getResource("SignUp.fxml"));
             StackPane root = (StackPane) SignUpBtn.getScene().getRoot();
             root.getChildren().add(SignUp);
+
+
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -64,24 +70,33 @@ public class LoginController implements Initializable{
         String sql = "";*/
         try {
             Database db = new Database();
-            if (!db.loginCheck(uId, upassword)) {//로그인 정보가 잘못되었을경우
-                Alert alert = new Alert(AlertType.INFORMATION);
-                alert.setContentText("잘못 입력 되었습니다..");
-                alert.show();
-            } else {
-            /* Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection(jdbcUrl, dbId, dbPw);
-            sql = "select id,password from guest";
-           pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, uId);
-            pstmt.setString(2, upassword);
-            rs = pstmt.executeQuery(sql);*/
-                
+
+             if (id.getText().isEmpty() || password.getText().isEmpty() ) {
+                 Alert alert = new Alert(AlertType.INFORMATION);
+                 alert.setContentText("아이디 혹은 비밀번호를 입력하지 않았습니다!!");
+                 alert.show();
+                 id.clear();
+                 password.clear();
+                 id.requestFocus();
+             }
+           else if (db.loginCheck(uId, upassword)) {
+                 db.AccessRecord(uId);
                 Server server = new Server();
-                server.accept_deliver(uId);
+                //   server.accept_deliver(uId);
+                Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setContentText("로그인 성공");
+                alert.show();
                 Parent mainPage = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
                 StackPane root = (StackPane) loginBtn.getScene().getRoot();
-                root.getChildren().add(mainPage);
+                root.getChildren().add(mainPage);}
+             else{
+                Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setContentText("로그인 실패!! 아이디 혹은 비밀번호가 맞지 않습니다!!");
+                alert.show();
+                id.clear();
+                password.clear();
+                id.requestFocus();
+
 
 
             }

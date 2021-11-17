@@ -21,9 +21,9 @@ public class Server {
         at.start();
 
     }
-    public void accept_deliver(String uname) {
-        accept_thread.name_setter(uname);
-    }
+   // public void accept_deliver(String uname) {
+     //   accept_thread.name_setter(uname);
+    //}
     public void Create_Handler(Socket user, DataInputStream dis, DataOutputStream dos, String userID, boolean canPlay) throws IOException {
         Client_Handler client_handler = new Client_Handler(user, dis, dos, userID, true);
         user_list.add(client_handler);
